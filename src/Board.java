@@ -43,8 +43,6 @@ public class Board {
         for (int i = 2; i <=5; i++) {
             Arrays.fill(board[i], null);
         }
-
-        board[4][3] = new Queen(4,3,"white");
     }
 
     public static Piece[][] getBoard() {
@@ -89,6 +87,13 @@ public class Board {
         board[pieceLocation.getRow()][pieceLocation.getColumn()] = null;
     }
 
+    public static void movePiece(Move move) {
+        Piece piece = move.getPiece();
+        removePiece(piece);
+        piece.setLocation(move.getLocation());
+        board[move.getLocation().getRow()][move.getLocation().getColumn()] = piece;
+    }
+
     public static void removePiece(String cellname) {
         Piece piece = cellNameToPiece(cellname);
         removePiece(piece);
@@ -108,12 +113,17 @@ public class Board {
     }
 
     public static void printBoard() {
-        for (Piece[] row : board) {
+        System.out.println("      A   B   C   D   E   F   G   H");
+        for (int i = 0; i < board.length; i++) {
+            System.out.println("    ---------------------------------");
+            System.out.print(8 - i + "   ");
+            Piece[] row = board[i];
+            System.out.print("| ");
             for (Piece piece : row) {
                 if (piece != null) {
-                    System.out.print(piece.getIcon() + " ");
+                    System.out.print(piece.getIcon() + " | ");
                 } else {
-                    System.out.print("0 ");
+                    System.out.print("0 | ");
                 }
             }
             System.out.println();

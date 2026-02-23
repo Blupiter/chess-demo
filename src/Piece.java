@@ -22,16 +22,31 @@ public abstract class Piece {
         return this.location;
     }
 
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     public abstract List<Move> getMoves();
 
-    public boolean canMove(Location location) {
+    public boolean move(String cellname) {
+        Location location = Board.cellNameToLocation(cellname);
+        Move move = tryMove(location);
+        if (move != null) {
+            Board.movePiece(move);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private Move tryMove(Location location) {
         List<Move> moves = getMoves();
         for (Move move : moves) {
             if (location.equals(move.getLocation())) {
-                return true;
+                return move;
             }
         }
-        return false;
+        return null;
     }
 
     public boolean isEnemy(Piece other) {

@@ -17,7 +17,7 @@ public class Pawn extends Piece {
             forwardAttempt = new Location(location.getRow()-1, location.getColumn());
         }
         if (Board.inBounds(forwardAttempt) && !Board.occupied(forwardAttempt)) {
-            moves.add(new Move(forwardAttempt, false, null));
+            moves.add(new Move(this, forwardAttempt, false, null));
         }
         // attack moves
         List<Location> attempts = new LinkedList<>();
@@ -32,7 +32,7 @@ public class Pawn extends Piece {
             if (Board.inBounds(attemptedLocation) && Board.occupied(attemptedLocation)) {
                 Piece otherPiece = Board.getPiece(attemptedLocation);
                 if (isEnemy(otherPiece)) {
-                    moves.add(new Move(attemptedLocation, true, otherPiece));
+                    moves.add(new Move(this, attemptedLocation, true, otherPiece));
                 }
             }
         }

@@ -25,12 +25,12 @@ public class Queen extends Piece {
         Location attemptedLocation = new Location(row, col);
         if (Board.inBounds(attemptedLocation)) {
             if (!Board.occupied(attemptedLocation)) {
-                moves.add(new Move(attemptedLocation, false, null));
+                moves.add(new Move(this, attemptedLocation, false, null));
                 getMovesHelper(moves, row+drow, col+dcol, drow, dcol);
             } else {
                 Piece otherPiece = Board.getPiece(attemptedLocation);
                 if (isEnemy(otherPiece)) {
-                    moves.add(new Move(attemptedLocation, true, otherPiece));
+                    moves.add(new Move(this, attemptedLocation, true, otherPiece));
                 }
             }
         }

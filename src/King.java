@@ -23,11 +23,11 @@ public class King extends Piece {
         for (Location attemptedLocation : attempts) {
             if (Board.inBounds(attemptedLocation)) {
                 if (!Board.occupied(attemptedLocation)) {
-                    moves.add(new Move(attemptedLocation, false, null));
+                    moves.add(new Move(this, attemptedLocation, false, null));
                 } else {
                     Piece otherPiece = Board.getPiece(attemptedLocation);
                     if (isEnemy(otherPiece)) {
-                        moves.add(new Move(attemptedLocation, true, otherPiece));
+                        moves.add(new Move(this, attemptedLocation, true, otherPiece));
                     }
                 }
             }
