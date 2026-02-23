@@ -7,7 +7,6 @@ public class King extends Piece {
         this.icon = 'K';
     }
 
-    // FIX THIS
     public List<Move> getMoves() {
         List<Move> moves = new LinkedList<Move>();
         List<Location> attempts = new LinkedList<>();

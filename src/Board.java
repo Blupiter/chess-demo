@@ -31,18 +31,20 @@ public class Board {
         board[0][3] = new Queen(0, 3, "black");
         board[0][4] = new King(0, 4, "black");
 
-        board[7][0] = new Rook(0, 0, "white");
-        board[7][7] = new Rook(0, 7, "white");
-        board[7][1] = new Knight(0, 1, "white");
-        board[7][6] = new Knight(0, 6, "white");
-        board[7][2] = new Bishop(0, 2, "white");
-        board[7][5] = new Bishop(0, 5, "white");
-        board[7][3] = new Queen(0, 3, "white");
-        board[7][4] = new King(0, 4, "white");
+        board[7][0] = new Rook(7, 0, "white");
+        board[7][7] = new Rook(7, 7, "white");
+        board[7][1] = new Knight(7, 1, "white");
+        board[7][6] = new Knight(7, 6, "white");
+        board[7][2] = new Bishop(7, 2, "white");
+        board[7][5] = new Bishop(7, 5, "white");
+        board[7][3] = new Queen(7, 3, "white");
+        board[7][4] = new King(7, 4, "white");
 
         for (int i = 2; i <=5; i++) {
             Arrays.fill(board[i], null);
         }
+
+        board[4][3] = new Queen(4,3,"white");
     }
 
     public static Piece[][] getBoard() {
@@ -80,6 +82,16 @@ public class Board {
 
         // Combine row and column to form the cell name
         return "" + rowChar + column;
+    }
+
+    public static void removePiece(Piece piece) {
+        Location pieceLocation = piece.getLocation();
+        board[pieceLocation.getRow()][pieceLocation.getColumn()] = null;
+    }
+
+    public static void removePiece(String cellname) {
+        Piece piece = cellNameToPiece(cellname);
+        removePiece(piece);
     }
 
     public static boolean inBounds(Location location) {

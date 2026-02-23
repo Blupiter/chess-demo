@@ -7,16 +7,6 @@ public class Pawn extends Piece {
         this.icon = 'P';
     }
 
-    // public boolean canMove(Location location) {
-    //     List<Move> moves = getMoves();
-    //     for (Move move : moves) {
-    //         if (location.equals(move.getLocation())) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
     public List<Move> getMoves() {
         List<Move> moves = new LinkedList<Move>();
         // normal moves

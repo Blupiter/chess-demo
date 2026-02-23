@@ -5,11 +5,6 @@ public abstract class Piece {
     protected String color;
     protected char icon;
 
-
-    public Piece() {
-
-    }
-
     public Piece(int row, int column, String color) {
         this.location = new Location(row, column);
         this.color = color;
@@ -26,8 +21,6 @@ public abstract class Piece {
     public Location getLocation() {
         return this.location;
     }
-
-    //public abstract boolean canMove(int row, int column);
 
     public abstract List<Move> getMoves();
 
