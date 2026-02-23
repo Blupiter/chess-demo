@@ -1,7 +1,12 @@
+import java.util.List;
+
 public class Queen extends Piece {
-    public Queen(int row, char column, String color) {
+    public Queen(int row, int column, String color) {
         super(row, column, color);
         this.icon = 'Q';
-        this.allowedTraversal = 7;
+    }
+
+    public List<Move> getMoves() {
+        return null;
     }
 }

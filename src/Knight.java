@@ -1,7 +1,12 @@
+import java.util.List;
+
 public class Knight extends Piece{
-    public Knight(int row, char column, String color) {
+    public Knight(int row, int column, String color) {
         super(row, column, color);
         this.icon = 'H';
-        this.allowedTraversal = 1;
+    }
+
+    public List<Move> getMoves() {
+        return null;
     }
 }

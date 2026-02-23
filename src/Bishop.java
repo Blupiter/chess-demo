@@ -1,7 +1,12 @@
+import java.util.List;
+
 public class Bishop extends Piece{
-    public Bishop(int row, char column, String color) {
+    public Bishop(int row, int column, String color) {
         super(row, column, color);
         this.icon = 'B';
-        this.allowedTraversal = 7;
+    }
+
+    public List<Move> getMoves() {
+        return null;
     }
 }

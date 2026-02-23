@@ -1,7 +1,12 @@
+import java.util.List;
+
 public class Rook extends Piece {
-    public Rook(int row, char column, String color) {
+    public Rook(int row, int column, String color) {
         super(row, column, color);
         this.icon = 'R';
-        this.allowedTraversal = 7;
+    }
+
+    public List<Move> getMoves() {
+        return null;
     }
 }
